@@ -1,0 +1,48 @@
+---
+kube-prometheus-stack:
+  grafana:
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
+    dashboards:
+      default:
+        ArgoCD:
+          url: 'https://raw.githubusercontent.com/argoproj/argo-cd/v1.8.5/examples/dashboard.json'
+  prometheus:
+    additionalServiceMonitors:  # https://argo-cd.readthedocs.io/en/stable/operator-manual/metrics/
+      - name: argocd-metrics
+        selector:
+          matchLabels:
+            app.kubernetes.io/name: argocd-metrics
+        endpoints:
+          - port: metrics
+        namespaceSelector:
+          matchNames:
+            - argocd
+      - name: argocd-server-metrics
+        selector:
+          matchLabels:
+            app.kubernetes.io/name: argocd-server-metrics
+        endpoints:
+          - port: metrics
+        namespaceSelector:
+          matchNames:
+            - argocd
+      - name: argocd-repo-server-metrics
+        selector:
+          matchLabels:
+            app.kubernetes.io/name: argocd-repo-server
+        endpoints:
+          - port: metrics
+        namespaceSelector:
+          matchNames:
+            - argocd
