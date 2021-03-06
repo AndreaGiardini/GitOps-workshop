@@ -1,0 +1,23 @@
+# Multiple notifications bug: https://github.com/argoproj-labs/argocd-notifications/issues/90
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-notifications-cm
+data:
+  context: |
+    myUsername: "Jane Doe" # ADD HERE YOUR USERNAME
+  service.webhook.discord: |
+    url: "" # ADD HERE YOUR URL
+    headers:
+    - name: Content-Type
+      value: application/json
+  template.app-sync-succeeded: |
+    webhook:
+      discord:
+        method: POST
+        body: |
+          {
+            "content": ":white_check_mark: - {{.context.myUsername}} synced their application successfully! \n:rocket: -  URL: {{call .repo.FullNameByRepoURL .app.spec.source.repoURL}}",
+            "username": "ArgoCD",
+            "avatar_url": "https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.png"
+          }
