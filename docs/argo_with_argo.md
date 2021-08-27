@@ -34,7 +34,7 @@ After applying this change:
 Apply the changes to the ArgoCD deployment by running:
 
 ```
-$ docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v3.10.0 build manifests | kubectl apply -f -
+docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v4.2.0 build manifests | kubectl apply -f -
 ```
 
 At this point, Kustomize is installed in our ArgoCD instance and ready to be used.
@@ -61,7 +61,7 @@ Important: Commit all the changes in your repository and push it to your custom 
 Then apply the changes manually for the last time:
 
 ```
-$ docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v3.10.0 build manifests | kubectl apply -f -
+docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v4.2.0 build manifests | kubectl apply -f -
 ```
 
 With this change, ArgoCD is now managing itself using the definition in our repository. Argo will clone our repo and verify that the resources deployed in the cluster correspond with the resources in our git repository.

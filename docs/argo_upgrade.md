@@ -3,8 +3,8 @@
 
 But... Will it actually work?
 
-To test it out we will let ArgoCD upgrate itself!
-The installed version is v1.8.6 but v1.8.7 is out... let's upgrade!
+To test it out we will let ArgoCD upgrate itself! The installed version is
+v2.0.5 but v2.1.0 is out... let's upgrade!
 
 Have a look at the `argocd_deploy/kustomization.yaml` file... Can you figure out how to do it?
 

@@ -1,0 +1,9 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+#networking:
+#  ipFamily: ipv4
+#  apiServerAddress: 127.0.0.1
+#  kubeProxyMode: "iptables"
+nodes:
+- role: control-plane
+  image: kindest/node:v1.21.2 # Check before upgrading https://github.com/kubernetes-sigs/kind/issues/2326

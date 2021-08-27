@@ -19,7 +19,7 @@ resources:
 Kube-prometheus-stack is now being installed. You can follow the progress with:
 
 ```
-$ kubectl get po -n monitoring -w
+kubectl get po -n monitoring -w
 ```
 
 ## Visualize grafana dashboard
@@ -27,13 +27,13 @@ $ kubectl get po -n monitoring -w
 Set up port-forward to grafana:
 
 ```
-$ kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 10000:80
+kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 10000:80
 ```
 
 Get admin password:
 
 ```
-$ kubectl get secret --namespace monitoring kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+kubectl get secret --namespace monitoring kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
 
 Login at [localhost:10000](http://localhost:10000) with username `admin`
