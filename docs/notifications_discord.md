@@ -76,17 +76,3 @@ Let's commit and push our changes
 
 After the change is applied and the sync is completed we should see a new
 message posted by our bot in the Discord channel!
-
-
-
-
-
-
-
-
-
-
-
-
-
-

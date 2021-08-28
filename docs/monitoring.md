@@ -6,7 +6,8 @@ Have a look at the manifests in the `app_kube-prometheus-stack` folder, you shou
 To install the monitoring stack we need to:
 
 * Modify `argocd_deploy/apps/kube_prometheus_stack.yaml`
-* Include it in the kustomization resources:
+* Include it in the kustomization resources
+  ( `argocd_deploy/kustomization.yaml`):
 
 ```
 resources:
@@ -16,7 +17,11 @@ resources:
 ```
 * Apply the changes by committing and pushing
 
-Kube-prometheus-stack is now being installed. You can follow the progress with:
+Wait a couple of minutes to let ArgoCD pick up the changes or force
+refresh from the web interface.
+
+Kube-prometheus-stack is now being installed. You can follow the progress
+with:
 
 ```
 kubectl get po -n monitoring -w
@@ -24,16 +29,16 @@ kubectl get po -n monitoring -w
 
 ## Visualize grafana dashboard
 
-Set up port-forward to grafana:
-
-```
-kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 10000:80
-```
-
 Get admin password:
 
 ```
 kubectl get secret --namespace monitoring kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
+
+Set up port-forward to grafana:
+
+```
+kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 10000:80
 ```
 
 Login at [localhost:10000](http://localhost:10000) with username `admin`

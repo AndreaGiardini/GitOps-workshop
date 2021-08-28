@@ -1,0 +1,21 @@
+# Multiple notifications bug: https://github.com/argoproj-labs/argocd-notifications/issues/90
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-notifications-cm
+data:
+  context: |
+    myUsername: "Jane Doe" # ADD HERE YOUR USERNAME
+  service.webhook.webhook-site: |
+    url: "" # ADD HERE YOUR URL
+    headers:
+    - name: Content-Type
+      value: application/json
+  template.app-sync-succeeded: |
+    webhook:
+      webhook-site:
+        method: POST
+        body: |
+          {
+            "message": "Congrats {{.context.myUsername}}! You synced you application successfully! -  URL: {{call .repo.FullNameByRepoURL .app.      spec.source.repoURL}}"
+          }

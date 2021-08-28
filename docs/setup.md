@@ -6,9 +6,10 @@ We will then access the web interface to make sure that everything is in place.
 ## Create K8s cluster
 
 Use [kind](https://github.com/kubernetes-sigs/kind) to start a new local cluster.
+Clone the forked repository, enter the folder and then run:
 
 ```
-kind create cluster --image=kindest/node:v1.21.2
+kind create cluster --config=cluster.yml
 ```
 
 ## Install ArgoCD
@@ -22,6 +23,8 @@ In this case we are going to run Kustomize from a docker container, but you can 
 docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v4.2.0 build manifests | kubectl apply -f -
 ```
 
+NOTE: If you are using a different operating system than linux you might have to adjust the command above
+
 ArgoCD is now being installed. You can follow the progress with:
 
 ```
@@ -33,12 +36,12 @@ You will find some commented lines and files, we will use them in the next steps
 
 ## Login web interface
 
-Let's then verify that everything is up and running by accessing the web interface of ArgoCD.
+Let's verify that everything is up and running by accessing the web interface of ArgoCD.
 
-* Port forward to the Argo CD server. This will bing your local port to ArgoCD  
-  `kubectl port-forward svc/argocd-server -n argocd 8080:443`
 * Get the auto-generated password for the 'admin' user  
   `kubectl get secret -n argocd argocd-initial-admin-secret --template={{.data.password}} | base64 --decode`
+* Port forward to the Argo CD server. This will bing your local port to ArgoCD  
+  `kubectl port-forward svc/argocd-server -n argocd 8080:443`
 * Login on [localhost:8080](http://localhost:8080) with username `admin` and password from previous step
 
 ## Login CLI (optional)

@@ -6,6 +6,7 @@ metadata:
   namespace: argocd
   #  annotations:
   #    notifications.argoproj.io/subscribe.on-sync-succeeded.discord: "discord-notification"
+  #    notifications.argoproj.io/subscribe.on-sync-succeeded.webhook-site: "webhook-site-notification"
 spec:
   project: default
   source:
