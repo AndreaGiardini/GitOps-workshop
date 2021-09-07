@@ -17,5 +17,5 @@ data:
         method: POST
         body: |
           {
-            "message": "Congrats {{.context.myUsername}}! You synced you application successfully! -  URL: {{call .repo.FullNameByRepoURL .app.      spec.source.repoURL}}"
+            "message": "Congrats {{.context.myUsername}}! You synced you application successfully!"
           }
