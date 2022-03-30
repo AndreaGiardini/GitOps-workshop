@@ -20,7 +20,7 @@ Kustomize is a tool that generates Kubernetes manifests, starting from a definit
 In this case we are going to run Kustomize from a docker container, but you can also download kustomize locally and run it from there, the result shouldn't change.
 
 ```
-docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v4.2.0 build manifests | kubectl apply -f -
+docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v4.5.3 build manifests | kubectl apply -f -
 ```
 
 NOTE: If you are using a different operating system than linux you might have to adjust the command above

@@ -4,7 +4,7 @@
 But... Will it actually work?
 
 To test it out we will let ArgoCD upgrate itself! The installed version is
-v2.0.5 but v2.1.0 is out... let's upgrade!
+v2.3.1 but v2.3.2 is out... let's upgrade!
 
 Have a look at the `argocd_deploy/kustomization.yaml` file... Can you figure out how to do it?
 
@@ -22,5 +22,5 @@ However its configuration is more complex and out of scope for this
 workshop. When webhooks are not configured, Argo will poll regularly the
 git repo.
 
-If you have done every step correctly, you should see `v2.1.0` in the top
+If you have done every step correctly, you should see `v2.3.2` in the top
 left corner of the web interface, below Argo's logo.

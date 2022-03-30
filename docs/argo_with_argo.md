@@ -34,7 +34,7 @@ After applying this change:
 Apply the changes to the ArgoCD deployment by running:
 
 ```
-docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v4.2.0 build manifests | kubectl apply -f -
+docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v4.5.3 build manifests | kubectl apply -f -
 ```
 
 At this point, Kustomize is installed in our ArgoCD instance and ready to be used.
@@ -62,7 +62,7 @@ We need to do that because, after running the next command, ArgoCD will use our 
 Apply the changes manually one last time:
 
 ```
-docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v4.2.0 build manifests | kubectl apply -f -
+docker run --rm -v $(pwd)/argocd_deploy:/app/manifests k8s.gcr.io/kustomize/kustomize:v4.5.3 build manifests | kubectl apply -f -
 ```
 
 What will happen right now:

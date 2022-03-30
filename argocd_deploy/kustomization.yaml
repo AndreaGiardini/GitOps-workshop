@@ -1,18 +1,18 @@
 namespace: argocd
 
 bases:
-- github.com/argoproj/argo-cd/manifests/cluster-install?ref=v2.0.5
-  #- github.com/argoproj/argo-cd/manifests/cluster-install?ref=v2.1.0
+- github.com/argoproj/argo-cd/manifests/cluster-install?ref=v2.3.1
+  #- github.com/argoproj/argo-cd/manifests/cluster-install?ref=v2.3.2
 
 resources:
 - resources/namespace.yaml
   #- apps/argocd.yaml # Edit the file before applying!
   #- apps/kube_prometheus_stack.yaml # Edit the file before applying!
-  #- https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/v1.1.1/manifests/install.yaml # ArgoCD Notifications
+  #- https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/v1.2.1/manifests/install.yaml # ArgoCD Notifications
 
   #patchesStrategicMerge:
   #- overlays/argocd-cm.yaml
   #- overlays/argocd-repo-server-deploy.yaml
-  #- https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/v1.1.1/catalog/install.yaml # ArgoCD Notifications
+  #- https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/v1.2.1/catalog/install.yaml # ArgoCD Notifications
   #- overlays/discord_notification.yaml
   #- overlays/webhook_notification.yaml
