@@ -9,7 +9,7 @@ message every time a sync action is completed successfully.
 At this point, ArgoCD notifications is already running in our system ...
 But it is still unconfigured.
 
-Open the file `argocd_deploy/overlays/discord_webhook_notification.yaml`
+Open the file `argocd_deploy/overlays/discord_notification.yaml`
 and replace the `myUsername` and `url` fields with the ones provided by
 the instructor.
 
@@ -18,7 +18,7 @@ After that, uncomment the following line in
 
 ```
 patchesStrategicMerge:
-- overlays/discord_webhook_notification.yaml
+- overlays/discord_notification.yaml
 ```
 
 Then commit and push to apply the change.
