@@ -3,5 +3,5 @@ name: prom-deployment
 version: 0.0.1
 dependencies:
 - name: kube-prometheus-stack
-  version: 18.0.1 # Grafana bug in newer versions - https://github.com/grafana/helm-charts/issues/200
+  version: 18.0.8 # Grafana bug in newer versions - https://github.com/grafana/helm-charts/issues/200
   repository: https://prometheus-community.github.io/helm-charts
