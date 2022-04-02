@@ -16,8 +16,8 @@ spec:
         image: busybox:stable
         command: [sh, -c]
         args:
-        - wget -qO- https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.2.0/kustomize_v4.2.0_linux_amd64.tar.gz | tar -xvzf - &&
-          mv kustomize /custom-tools/kustomize_4_2_0
+        - wget -qO- https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.3/kustomize_v4.5.3_linux_amd64.tar.gz | tar -xvzf - &&
+          mv kustomize /custom-tools/kustomize_4_5_3
         volumeMounts:
         - mountPath: /custom-tools
           name: custom-tools

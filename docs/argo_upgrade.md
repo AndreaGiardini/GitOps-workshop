@@ -15,6 +15,9 @@ If the waiting is too long, you can force Argo to refresh the definition
 manually by opening the web interface and pressing the `Refresh` button
 under the `argocd` application.
 
+You might have to restart the `kubectl proxy` command in order to see the
+new interface. That's because a new Argo Pod will be created.
+
 It is possible for Argo to receive webhook from Github whenever a new
 commit is pushed
 ([docs](https://argoproj.github.io/argo-cd/operator-manual/webhook/)).

@@ -11,7 +11,7 @@ spec:
     targetRevision: HEAD
     path: argocd_deploy
     kustomize:
-      version: v4.2.0
+      version: v4.5.3
 
   destination:
     server: https://kubernetes.default.svc

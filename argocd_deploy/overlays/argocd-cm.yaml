@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: argocd-cm
 data:
-  kustomize.version.v4.2.0: /custom-tools/kustomize_4_2_0
+  kustomize.version.v4.5.3: /custom-tools/kustomize_4_5_3
