@@ -21,3 +21,6 @@ data:
             "username": "ArgoCD",
             "avatar_url": "https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.png"
           }
+  trigger.mytrigger: |
+    - when: app.status.operationState.phase in ['Succeeded']
+      send: [app-sync-succeeded]
